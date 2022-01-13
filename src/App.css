@@ -1,0 +1,22 @@
+
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+ul {
+  margin-top: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}

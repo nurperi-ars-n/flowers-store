@@ -1,0 +1,28 @@
+
+
+
+.flowersBlock {
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+
+.flower {
+    width: 263px;
+    text-align: start;
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+
+.flower:nth-child(3) {
+    margin-right: 0;
+}
+
+
+.flowerImg {
+    width: 263px;
+    height: 350px;
+}

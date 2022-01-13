@@ -1,0 +1,41 @@
+li {
+	margin-right: 5px;
+}
+
+.about li b {
+	color: black;
+	font-weight: normal;
+}
+
+.about {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.aboutLeft,
+.aboutRight {
+	display: flex;
+	width: 260px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.aboutRight {
+	justify-content: flex-end;
+}
+
+.logo {
+	margin-top: 1rem;
+}
+/* nav */
+.nav {
+	background: #f6f6f6;
+	display: flex;
+	padding: 10px;
+	justify-content: space-around;
+	color: black;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+	cursor: pointer;
+}
