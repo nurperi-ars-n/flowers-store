@@ -8,6 +8,7 @@ import { filterBy } from "../../store/flowerSlice";
 import { Link } from "react-router-dom";
 import CartButton from "../Cart/CartButton";
 import Menu from "../UI/Menu";
+import Button from '../UI/Button'
 
 export default function Header() {
 	const dispatch = useDispatch();
@@ -43,6 +44,7 @@ export default function Header() {
 				</div>
 			</div>
 			<nav className={classes.nav}>
+				<Button className={classes.btn}>M</Button>
 				<li onClick={popularFirst}>popular </li>
 				<li onClick={newFirst}>new</li>
 				<li onClick={cheapFirst}>cheapе</li>

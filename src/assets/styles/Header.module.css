@@ -39,3 +39,31 @@ li {
 	margin-bottom: 40px;
 	cursor: pointer;
 }
+
+.btn {
+	margin-left: auto;
+	display: none;
+}
+
+@media screen and (max-width: 600px) {
+	.btn {
+		display: block;
+		max-width: 30px;
+	}
+	.nav {
+		flex-direction: column;
+		height: auto;
+	}
+
+	.nav li {
+		width: 100%;
+		border-top: 1px solid black;
+		text-align: center;
+		font-size: 20px;
+		letter-spacing:10px;
+	}
+	
+	.about {
+		justify-content: center;
+	}
+}
