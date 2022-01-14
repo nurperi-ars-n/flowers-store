@@ -3,11 +3,10 @@
 
 
 
-
-
 .container {
-    width: 40%;
+    text-align: center;
 }
+
 
 .itemWrapper {
     display: flex;
@@ -44,3 +43,4 @@
     width: 150px;
     height: 150px;
 }
+
