@@ -5,8 +5,9 @@ export const ROLES = {
 export const ROUTES = {
 	FLOWERS: "/flowers",
 	ADMIN: "/admin",
-	LOGIN: "/login",
+	LOG_xIN: "/login",
 	ABOUT_US: "/about",
 	CART: "/cart",
 	ACCESSDENIED: "/accessdenied",
+	SIGN_UP: "/sign_up",
 };

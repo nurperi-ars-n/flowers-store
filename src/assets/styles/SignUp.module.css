@@ -1,0 +1,20 @@
+.contentSignUp {
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+}
+
+.root {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: spacing(2);
+}
+.root .MuiTextField-root {
+	margin: spacing(1);
+	width: 300px;
+}
+.MuiButtonBase-root {
+	margin: spacing(2);
+}
