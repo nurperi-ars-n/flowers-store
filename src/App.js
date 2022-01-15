@@ -1,6 +1,8 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import "./App.css";
 import Spinner from "./components/UI/Spinner";
+import { fetchUsers } from "./store/users/dataUsers";
 
 function App() {
 	// const [isLoading, setisLoading] = useState(true);
@@ -12,15 +14,18 @@ function App() {
 	// if (isLoading) {
 	// 	return <Spinner />;
 	// }
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchUsers());
+	}, []);
 
 	const MainRouter = lazy(() => import("./Routes/MainRouter"));
 
 	return (
-		<div className='App'>
-			<Suspense fallback={<Spinner />}>
-				<MainRouter />
-			</Suspense>
-		</div>
+		<Suspense fallback={<Spinner />}>
+			<MainRouter />
+		</Suspense>
 	);
 }
 

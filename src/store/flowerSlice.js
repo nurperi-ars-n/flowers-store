@@ -93,7 +93,7 @@ const initState = {
 
         },
     
-    ]
+    ],
 }
 
 
@@ -105,10 +105,14 @@ const flowerSlice = createSlice({
             if(action.payload === 'cheapFirst') state.flowers.sort( (a, b) => a.price - b.price)
             if(action.payload === 'expensiveFirst') state.flowers.sort( (a, b) => b.price - a.price)
             if(action.payload === 'newFirst') state.flowers.sort( (a, b) => new Date(b.date) - new Date(a.date) )
-        }
+        },
+
+
     }
 })
 
 export const { filterBy } = flowerSlice.actions
+
+
 
 export default flowerSlice.reducer
