@@ -1,21 +1,20 @@
 import classes from "../../assets/styles/Login.module.css";
 import React from "react";
+import LoginForm from "../../components/UI/LoginForm";
+import { Button } from "@mui/material";
 
 function Login() {
 	return (
 		<div className={classes.container}>
-			<div>
-				<form className={classes.form}>
-					<div>
-						<h1>Welcome Back</h1>
-					</div>
-					<div className={classes.inputs}>
-						<input placeholder='Email Adress' />
-						<input placeholder='Password' />
-						<button className={classes.submitButton}>Login</button>
-					</div>
-				</form>
-			</div>
+			<form className={classes.form}>
+				<div>
+    	        	<h1>Welcome back</h1>
+        		</div>
+				<div>
+					<LoginForm/>
+					<Button type='submit' variant="contained" color="primary" className={classes.submitButton}>Submit</Button>
+				</div>
+			</form>
 		</div>
 	);
 }

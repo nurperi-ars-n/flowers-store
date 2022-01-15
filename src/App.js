@@ -1,5 +1,5 @@
-import React, { lazy, Suspense, useState } from "react";
-import { useDispatch } from "react-redux";
+import { lazy, Suspense } from "react";
+import "./App.css";
 import Spinner from "./components/UI/Spinner";
 import { fetchUsers } from "./store/users/dataUsers";
 
