@@ -8,19 +8,17 @@ import { ROLES, ROUTES } from "../utills/constants/general";
 import PrivateRoute from "./PrivateRoute";
 
 function MainRouter() {
-	return (
-		<Routes>
-			<Route path='*' element={<Layout />} />
-			<Route path={ROUTES.LOGIN} element={<Login />} />
-			<Route path={ROUTES.ACCESSDENIED} element={<AccessDenied />} />
-			<Route
-				path={ROUTES.ADMIN}
-				element={
-					<PrivateRoute roles={[ROLES.ADMIN]} component={AdminPage} />
-				}
-			/>
-		</Routes>
-	);
+  return (
+    <Routes>
+      <Route path="*" element={<Layout />} />
+      <Route path={ROUTES.LOGIN} element={<Login />} />
+      <Route path={ROUTES.ACCESSDENIED} element={<AccessDenied />} />
+      <Route
+        path={ROUTES.ADMIN + '/*'}
+        element={<PrivateRoute roles={[ROLES.ADMIN]} component={AdminPage} />}
+      />
+    </Routes>
+  );
 }
 
 export default MainRouter;

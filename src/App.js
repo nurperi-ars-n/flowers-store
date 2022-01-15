@@ -1,27 +1,32 @@
-import { lazy, Suspense, useState } from "react";
-import "./App.css";
+import React, { lazy, Suspense, useState } from "react";
+import { useDispatch } from "react-redux";
 import Spinner from "./components/UI/Spinner";
+import { fetchUsers } from "./store/users/dataUsers";
 
 function App() {
-	// const [isLoading, setisLoading] = useState(true);
-	// const isAuth = true;
-	// if (isAuth) {
-	// 	setisLoading(false);
-	// }
+  // const [isLoading, setisLoading] = useState(true);
+  // const isAuth = true;
+  // if (isAuth) {
+  // 	setisLoading(false);
+  // }
 
-	// if (isLoading) {
-	// 	return <Spinner />;
-	// }
+  // if (isLoading) {
+  // 	return <Spinner />;
+  // }
+  const dispatch = useDispatch()
 
-	const MainRouter = lazy(() => import("./Routes/MainRouter"));
+  React.useEffect(() => {
+    dispatch(fetchUsers())
+  }, [])
+  
 
-	return (
-		<div className='App'>
-			<Suspense fallback={<Spinner />}>
-				<MainRouter />
-			</Suspense>
-		</div>
-	);
+  const MainRouter = lazy(() => import("./Routes/MainRouter"));
+
+  return (
+    <Suspense fallback={<Spinner />}>
+      <MainRouter />
+    </Suspense>
+  );
 }
 
 export default App;
