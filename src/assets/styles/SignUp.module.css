@@ -1,20 +1,35 @@
-.contentSignUp {
-	height: 100vh;
-	align-items: center;
-	justify-content: center;
+.container {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 100px;
 }
 
-.root {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: spacing(2);
+
+.form {
+    background-color: rgb(252,254,252);
+    height: 350px;
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
 }
-.root .MuiTextField-root {
-	margin: spacing(1);
-	width: 300px;
+
+.inputs input {
+    font-size: 20px;
+    background: rgb(239,240,239);
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 90%;
+    margin-bottom: 20px;
 }
-.MuiButtonBase-root {
-	margin: spacing(2);
+
+
+.submitButton {
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    width: 90%;
+    height: 40px;
 }

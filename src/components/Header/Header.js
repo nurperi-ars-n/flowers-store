@@ -36,7 +36,6 @@ export default function Header() {
         </div>
         <div className={classes.mainLogo}>
           <Link to="/">
-            {/* <img src={Logo} alt="logo" /> */}
             <h1 className={classes.logo}>IFLOWERS</h1>
             <b>Just For You...</b>
           </Link>

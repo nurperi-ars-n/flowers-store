@@ -84,3 +84,13 @@
     padding: 10px;
 
 }
+
+
+
+.logOutButton {
+    margin-right: 300px;
+}
+
+.logOutButton:hover {
+    color: white;
+}

@@ -3,8 +3,14 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
+import { getLocal, removeLocal } from "../../helpers/localStorage";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../../store/logIn/loginSlice";
 
 export default function BasicMenu() {
+
+	const username = useSelector(state => state.logIn.username)
+	const dispatch = useDispatch()
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const open = Boolean(anchorEl);
 	const handleClick = (event) => {
@@ -13,6 +19,28 @@ export default function BasicMenu() {
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
+
+	function onLogout() {
+		handleClose()
+		dispatch(logOut())
+	}
+	
+	let isAuth = getLocal('isAuth')
+	console.log(isAuth);
+
+	let authItems = <>
+	<MenuItem onClick={handleClose}>
+		<Link to='/login'>Log In</Link>
+			</MenuItem>
+			<MenuItem onClick={handleClose}>
+		<Link to='/sign_up'>SignUp</Link>
+	</MenuItem>	
+	</>
+
+	
+
+	if(isAuth) authItems = <MenuItem onClick={onLogout}>Log Out</MenuItem>
+
 
 	return (
 		<div>
@@ -24,7 +52,7 @@ export default function BasicMenu() {
 				onClick={handleClick}
 				style={{ color: "black" }}
 			>
-				LogIn
+				{isAuth ? 'username' : 'Log In'}
 			</Button>
 			<Menu
 				id='basic-menu'
@@ -35,12 +63,13 @@ export default function BasicMenu() {
 					"aria-labelledby": "basic-button",
 				}}
 			>
-				<MenuItem onClick={handleClose}>
+				{/* <MenuItem onClick={handleClose}>
 					<Link to='/login'>Log In</Link>
 				</MenuItem>
 				<MenuItem onClick={handleClose}>
 					<Link to='/sign_up'>SignUp</Link>
-				</MenuItem>
+				</MenuItem> */}
+				{authItems}
 			</Menu>
 		</div>
 	);

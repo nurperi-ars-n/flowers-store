@@ -1,4 +1,4 @@
-import { getUsers } from "./userSlice";
+import { getUsers } from "./usersSlice";
 
 export const fetchUsers = () => {
   return async (dispatch) => {

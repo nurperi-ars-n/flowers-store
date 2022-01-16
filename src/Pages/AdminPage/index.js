@@ -1,13 +1,24 @@
+import { Button } from "@mui/material";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import classes from "../../assets/styles/AdminPage.module.css";
 import DashboardRoute from "../../Routes/DashboardRoute";
+import { logOut } from "../../store/logIn/loginSlice";
 import { ROLES, ROUTES } from "../../utills/constants/general";
 
 function AdminPage() {
+
+	const dispatch = useDispatch()
+
+	function logoutHandler() {
+		dispatch(logOut())
+	}
+
 	return (
 		<div className={classes.wrapper}>
 			<aside className={classes.sidebar}>
+			<Button className={classes.logOutButton} variant={'outlined'} onClick={logoutHandler}>Log out</Button>
 				<div className={classes.profile}>
 					<h3>Almaz</h3>
 					<p>Admin</p>
@@ -27,7 +38,7 @@ function AdminPage() {
 					</li>
 				</ul>
 			</aside>
-			<DashboardRoute role={ROLES.ADMIN} />
+			<DashboardRoute roles={ROLES.ADMIN} />
 		</div>
 	);
 }
