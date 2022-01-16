@@ -4,6 +4,7 @@ import Layout from "../components/Layout/Layout";
 import AccessDenied from "../Pages/AccessDenied";
 import AdminPage from "../Pages/AdminPage";
 import Login from "../Pages/LogIn/Login";
+import SignUp from "../Pages/SignUp";
 import { ROLES, ROUTES } from "../utills/constants/general";
 import PrivateRoute from "./PrivateRoute";
 
