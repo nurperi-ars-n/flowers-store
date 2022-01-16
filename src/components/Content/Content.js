@@ -16,7 +16,7 @@ export default function Content() {
 						item={item}
 					/>
 				))}
-				<StyledPagination count={"5"} />
+				<StyledPagination count={5} />
 			</div>
 		</div>
 	);
