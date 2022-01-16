@@ -1,36 +1,33 @@
 .flowersBlock {
-    max-width: 900px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+	max-width: 900px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .flower {
-    width: 280px;
-    margin-bottom: 40px;
+	width: 280px;
+	margin-bottom: 40px;
 }
 
 .flower:nth-child(3) {
-    margin-right: 0;
+	margin-right: 0;
 }
 
 .flowerImg {
-    width: 263px;
-    height: 350px;
+	width: 263px;
+	height: 350px;
 }
 
 
 @media screen and (max-width: 600px) {
-    .flowersBlock {
-        width: 100%;
-        margin: 0 auto;
-        justify-content: center;
-    }
+	.flowersBlock {
+		width: 100%;
+		margin: 0 auto;
+		justify-content: center;
+	}
 
-    .flowerImg {
-        width: 100%;
-    }
-
-
-
+	.flowerImg {
+		width: 100%;
+	}
 }
