@@ -1,12 +1,12 @@
 export const ROLES = {
-  ADMIN: "admin",
+  ADMIN: "ROLE_ADMIN",
 };
 
 export const ROUTES = {
   FLOWERS: "/flowers",
   ADMIN: "/admin",
   LOGIN: "/login",
-  ABOUT_US: "/about",
+  SIGN_UP:'/sign_up',
   CART: "/cart",
   ACCESSDENIED: "/accessdenied",
   ADMIN_FLOWERS: "flowers",

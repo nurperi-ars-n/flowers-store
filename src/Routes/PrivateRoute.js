@@ -1,17 +1,18 @@
+import React from "react";
+import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { ROUTES } from "../utills/constants/general";
 
 function PrivateRoute({ component: RouteComponent, roles }) {
-	const role = "GOOO";
-	const userHasRequiredRole = roles.includes(role) ? true : false;
-	const isAuthenticated = true;
-	//   if (isAuthenticated && userHasRequiredRole) {
-	return <RouteComponent />;
-	//   }
-	//   if (isAuthenticated && !roles.includes(role)) {
-	//     return <Navigate to={ROUTES.ACCESSDENIED} replace />;
-	//   }
-	console.log(role, "role");
+  const { isAuth, role } = useSelector((state) => state.logIn);
+  const userHasRequiredRole = roles === role;
+  if (isAuth && userHasRequiredRole) {
+    return <RouteComponent />;
+  }
+  if (!isAuth && !userHasRequiredRole) {
+    return <Navigate to={ROUTES.ACCESSDENIED} replace />;
+  }
+  return <Navigate to={ROUTES.FLOWERS} replace />;
 }
 
 export default PrivateRoute;
