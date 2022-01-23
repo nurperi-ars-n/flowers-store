@@ -13,13 +13,13 @@ const FlowersCreateUpdateDeleteModal = ({
 	item,
 	modalType,
 	fetch,
-	title,
+	name,
 }) => {
 	const [form, setForm] = useState({
-		title: item?.title | "",
-		price: item?.id | null,
-		raiting: item?.userId | null,
-		availaible: item?.completed | true,
+		name: "",
+		price: null,
+		rating: null,
+		available: true,
 	});
 	const [error, setError] = useState(null);
 
@@ -49,7 +49,7 @@ const FlowersCreateUpdateDeleteModal = ({
 			result = await createFlowers({
 				...form,
 				price: parseInt(form.price),
-				raiting: parseInt(form.raiting),
+				rating: parseInt(form.rating),
 			});
 			toast.success("Creation was successfully!");
 		} else if (modalType === FLOWER_MODAL_TYPE.UPDATE) {
@@ -97,7 +97,7 @@ const FlowersCreateUpdateDeleteModal = ({
 			>
 				<Box closeButton>
 					<Typography variant='h4' mb={4}>
-						{title}
+						{name}
 					</Typography>
 				</Box>
 
@@ -113,9 +113,9 @@ const FlowersCreateUpdateDeleteModal = ({
 						<TextField
 							type='text'
 							autoFocus
-							value={form?.title}
+							value={form?.name}
 							label='Title'
-							name='title'
+							name='name'
 							onChange={handleformChange}
 						/>
 						<TextField
@@ -127,9 +127,9 @@ const FlowersCreateUpdateDeleteModal = ({
 						/>
 						<TextField
 							type='number'
-							value={form?.raiting}
-							name='raiting'
-							label='Raiting'
+							value={form?.rating}
+							name='rating'
+							label='rating'
 							onChange={handleformChange}
 						/>
 						<TextField

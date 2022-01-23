@@ -40,6 +40,11 @@ function AdminPage() {
 							<span className={classes["admin-item"]}>Users</span>
 						</Link>
 					</li>
+					<li>
+						<Link to={ROUTES.ADMIN_ORDERS}>
+							<span className={classes["admin-item"]}>Orders</span>
+						</Link>
+					</li>
 				</ul>
 			</aside>
 			<DashboardRoute roles={ROLES.ADMIN} />

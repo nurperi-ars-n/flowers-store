@@ -11,6 +11,7 @@ export const ROUTES = {
 	ACCESSDENIED: "/accessdenied",
 	ADMIN_FLOWERS: "flowers",
 	ADMIN_USERS: "users",
+	ADMIN_ORDERS: "orders",
 };
 export const FLOWER_MODAL_TYPE = {
 	CREATE: 1,

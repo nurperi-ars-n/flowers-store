@@ -29,6 +29,36 @@ function DefaultColumnFilter({
 				setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
 			}}
 			placeholder={`Search ${count} flowers...`}
+			sx={{
+				"&.MuiFormControl-root": {
+					width: "100%",
+				},
+				".MuiInputBase-formControl": {
+					background: "#ffffff",
+					minWidth: "100px",
+					height: "42px",
+					borderRadius: "10px",
+					padding: "10px 8px",
+					color: "#9c9b9b",
+				},
+				".Mui-focused": {
+					color: "#9c9b9b",
+				},
+				".MuiInputLabel-root": {
+					transform: "translate(26px, 10px)",
+				},
+				".MuiInputLabel-shrink": {
+					transform: "translate(14px, -10px)",
+					fontSize: "13px",
+					lineHeight: "19px",
+				},
+				" & .MuiOutlinedInput-root": {
+					"&.Mui-focused fieldset, :hover fieldset": {
+						borderColor: "#d4d4d4",
+						color: "#9c9b9b",
+					},
+				},
+			}}
 		/>
 	);
 }

@@ -39,18 +39,18 @@ export default function Flowers() {
 		() => [
 			{
 				Header: "Title",
-				// accessor: "name",
-				accessor: "title",
+				accessor: "name",
+				// accessor: "title",
 			},
 			{
 				Header: "Price",
-				// accessor: "price",
-				accessor: "userId",
+				accessor: "price",
+				// accessor: "userId",
 			},
 			{
 				Header: "Rating",
-				accessor: "id",
-				// accessor: "rating",
+				// accessor: "id",
+				accessor: "rating",
 			},
 			{
 				Header: "Available",
@@ -106,7 +106,7 @@ export default function Flowers() {
 				isOpen: true,
 				item: item,
 				modalType: FLOWER_MODAL_TYPE.UPDATE,
-				title: `Edit flower "${item.title}"?`,
+				title: `Edit flower "${item.name}"?`,
 			});
 		};
 	};
@@ -117,7 +117,7 @@ export default function Flowers() {
 				isOpen: true,
 				item: item,
 				modalType: FLOWER_MODAL_TYPE.DELETE,
-				title: `Are you sure you want to delete the flower "${item.title}"?`,
+				title: `Are you sure you want to delete the flower "${item.name}"?`,
 			});
 		};
 	};
@@ -127,7 +127,7 @@ export default function Flowers() {
 			<FlowersCreateUpdateDeleteModal
 				isOpen={modal.isOpen}
 				item={modal.item}
-				title={modal.title}
+				name={modal.name}
 				modalType={modal.modalType}
 				setModal={setModal}
 				fetch={fetchUsers}
