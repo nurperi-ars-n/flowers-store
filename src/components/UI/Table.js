@@ -63,7 +63,7 @@ function DefaultColumnFilter({
 	);
 }
 
-function FlowerTable({ columns, data, handleCreateClick }) {
+function FlowerTable({ createName, columns, data, handleCreateClick }) {
 	const filterTypes = React.useMemo(
 		() => ({
 			// Add a new fuzzyTextFilterFn filter type.
@@ -119,15 +119,17 @@ function FlowerTable({ columns, data, handleCreateClick }) {
 	return (
 		<>
 			<TableContainer component={Paper} sx={{ p: 5 }}>
-				<Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-					<Button
-						variant={"contained"}
-						size={"large"}
-						onClick={handleCreateClick}
-					>
-						Create new flower
-					</Button>
-				</Box>
+				{createName && (
+					<Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+						<Button
+							variant={"contained"}
+							size={"large"}
+							onClick={handleCreateClick}
+						>
+							Create new {createName}
+						</Button>
+					</Box>
+				)}
 				<Table {...getTableProps()}>
 					<TableHead>
 						{headerGroups.map((headerGroup) => (

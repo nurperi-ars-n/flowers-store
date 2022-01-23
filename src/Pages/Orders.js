@@ -34,21 +34,21 @@ export default Orders;
 const flowerOptions = [
 	{
 		Header: "sendersName",
-		accessor: "id",
+		accessor: "sendersFullName",
 	},
 	{
 		Header: "sendersPhone",
-		accessor: "title",
+		accessor: "sendersPhoneNumber",
 	},
 
 	{
 		Header: "address",
-		accessor: "userId",
+		accessor: "address",
 	},
 	{
 		Header: "recipientName",
-		filter: "role",
-		accessor: "role",
+		filter: "recipientFullName",
+		accessor: "recipientFullName",
 	},
 	{
 		Header: "recipientPhone",

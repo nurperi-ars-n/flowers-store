@@ -25,19 +25,22 @@ export const getFlowers = async () => {
 		return { success: false, data: e.response };
 	}
 };
-export const editFlowers = async () => {
+export const editFlowers = async (flower, id) => {
 	try {
-		const response = await axiosInstance.get("api/flowers?page=1&size=20");
+		const response = await axiosInstance.put(`api/flowers${id}`, flower);
 		const data = response.data;
+		console.log(response, "editFlower");
 		return { success: true, data };
 	} catch (e) {
 		return { success: false, data: e.response };
 	}
 };
-export const delFlowers = async () => {
+export const delFlowers = async (id) => {
+	console.log(id, "deleteFlower");
 	try {
-		const response = await axiosInstance.get("api/flowers?page=1&size=20");
+		const response = await axiosInstance.delete(`api/flowers/${id}`);
 		const data = response.data;
+		console.log(response, "deleteFlower");
 		return { success: true, data };
 	} catch (e) {
 		return { success: false, data: e.response };

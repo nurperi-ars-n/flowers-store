@@ -24,18 +24,21 @@ const FlowersCreateUpdateDeleteModal = ({
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
+		if (modalType === FLOWER_MODAL_TYPE.UPDATE) {
+			setForm((prev) => ({
+				name: item?.name,
+				price: item?.price,
+				rating: item?.rating,
+				available: item?.available,
+			}));
+		}
+	}, [item, modalType]);
+
+	useEffect(() => {
 		console.log(item, "itemF");
 		console.log(form, "form");
 		console.log(modalType, "modalType");
 	}, [form, item, modalType]);
-
-	useEffect(() => {
-		if (modalType === FLOWER_MODAL_TYPE.UPDATE) {
-			setForm(item.name);
-		} else {
-			setForm("");
-		}
-	}, [item, modalType]);
 
 	const onSubmit = async () => {
 		// if (modalType !== FLOWER_MODAL_TYPE.DELETE && !form.length) {
@@ -54,7 +57,7 @@ const FlowersCreateUpdateDeleteModal = ({
 			toast.success("Creation was successfully!");
 		} else if (modalType === FLOWER_MODAL_TYPE.UPDATE) {
 			result = await editFlowers(form, item.id);
-		} else if (modalType) {
+		} else if (modalType === FLOWER_MODAL_TYPE.DELETE) {
 			result = await delFlowers(item.id);
 		}
 
@@ -68,7 +71,6 @@ const FlowersCreateUpdateDeleteModal = ({
 
 	const onModalClose = () => {
 		setModal(false);
-		setForm("");
 	};
 
 	const handleformChange = (e) => {
@@ -117,8 +119,10 @@ const FlowersCreateUpdateDeleteModal = ({
 							label='Title'
 							name='name'
 							onChange={handleformChange}
+							autoComplete='off'
 						/>
 						<TextField
+							autoComplete='off'
 							type='number'
 							value={form?.price}
 							label='Price'
@@ -127,12 +131,14 @@ const FlowersCreateUpdateDeleteModal = ({
 						/>
 						<TextField
 							type='number'
+							autoComplete='off'
 							value={form?.rating}
 							name='rating'
 							label='rating'
 							onChange={handleformChange}
 						/>
 						<TextField
+							autoComplete='off'
 							type='text'
 							value={form?.description}
 							label='Description'
@@ -140,6 +146,7 @@ const FlowersCreateUpdateDeleteModal = ({
 							onChange={handleformChange}
 						/>
 						<BasicSelect
+							autoComplete='off'
 							type='text'
 							value={form?.available}
 							label='Available'
@@ -162,7 +169,7 @@ const FlowersCreateUpdateDeleteModal = ({
 					<Box
 						sx={{
 							display: "flex",
-							width: "13rem",
+							width: "14rem",
 							justifyContent: "space-between",
 						}}
 					>

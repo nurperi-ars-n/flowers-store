@@ -1,4 +1,4 @@
-import { Button, Typography, Box } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getFlowers } from "../api/api";
@@ -96,7 +96,7 @@ export default function Flowers() {
 			isOpen: true,
 			item: null,
 			modalType: FLOWER_MODAL_TYPE.CREATE,
-			title: "Create flower",
+			name: "Create flower",
 		});
 	};
 
@@ -106,7 +106,7 @@ export default function Flowers() {
 				isOpen: true,
 				item: item,
 				modalType: FLOWER_MODAL_TYPE.UPDATE,
-				title: `Edit flower "${item.name}"?`,
+				name: `Edit flower "${item.name}"?`,
 			});
 		};
 	};
@@ -117,7 +117,7 @@ export default function Flowers() {
 				isOpen: true,
 				item: item,
 				modalType: FLOWER_MODAL_TYPE.DELETE,
-				title: `Are you sure you want to delete the flower "${item.name}"?`,
+				name: `Are you sure you want to delete the flower "${item.name}"?`,
 			});
 		};
 	};
@@ -133,6 +133,7 @@ export default function Flowers() {
 				fetch={fetchUsers}
 			/>
 			<FlowerTable
+				createName='Flower'
 				columns={flowerOptions}
 				data={flowers}
 				handleCreateClick={handleCreateClick}
