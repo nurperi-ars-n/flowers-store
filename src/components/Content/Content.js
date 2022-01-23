@@ -10,13 +10,9 @@ export default function Content() {
 		<div className={classes.container}>
 			<div className={classes.flowersBlock}>
 				{flowers.map((item) => (
-					<Card
-						key={item.id}
-						className={classes.flower}
-						item={item}
-					/>
+					<Card key={item.id} className={classes.flower} item={item} />
 				))}
-				<StyledPagination count={"5"} />
+				<StyledPagination count={5} />
 			</div>
 		</div>
 	);

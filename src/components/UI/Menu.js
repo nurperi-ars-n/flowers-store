@@ -8,9 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../store/logIn/loginSlice";
 
 export default function BasicMenu() {
-
-	const username = useSelector(state => state.logIn.username)
-	const dispatch = useDispatch()
+	const username = useSelector((state) => state.auth.username);
+	const dispatch = useDispatch();
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const open = Boolean(anchorEl);
 	const handleClick = (event) => {
@@ -21,26 +20,25 @@ export default function BasicMenu() {
 	};
 
 	function onLogout() {
-		handleClose()
-		dispatch(logOut())
+		handleClose();
+		dispatch(logOut());
 	}
-	
-	let isAuth = getLocal('isAuth')
+
+	let isAuth = getLocal("isAuth");
 	console.log(isAuth);
 
-	let authItems = <>
-	<MenuItem onClick={handleClose}>
-		<Link to='/login'>Log In</Link>
+	let authItems = (
+		<>
+			<MenuItem onClick={handleClose}>
+				<Link to='/login'>Log In</Link>
 			</MenuItem>
 			<MenuItem onClick={handleClose}>
-		<Link to='/sign_up'>SignUp</Link>
-	</MenuItem>	
-	</>
+				<Link to='/sign_up'>SignUp</Link>
+			</MenuItem>
+		</>
+	);
 
-	
-
-	if(isAuth) authItems = <MenuItem onClick={onLogout}>Log Out</MenuItem>
-
+	if (isAuth) authItems = <MenuItem onClick={onLogout}>Log Out</MenuItem>;
 
 	return (
 		<div>
@@ -52,7 +50,7 @@ export default function BasicMenu() {
 				onClick={handleClick}
 				style={{ color: "black" }}
 			>
-				{isAuth ? 'username' : 'Log In'}
+				{isAuth ? "username" : "Log In"}
 			</Button>
 			<Menu
 				id='basic-menu'

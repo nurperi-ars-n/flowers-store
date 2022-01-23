@@ -7,8 +7,8 @@ import Flowers from "../Pages/Flowers";
 export default function DashboardRoute() {
 	return (
 		<Routes>
-			<Route path={ROUTES.ADMIN_USERS} element={<Users />} />
 			<Route path={ROUTES.ADMIN_FLOWERS} element={<Flowers />} />
+			<Route path={ROUTES.ADMIN_USERS} element={<Users />} />
 		</Routes>
 	);
 }

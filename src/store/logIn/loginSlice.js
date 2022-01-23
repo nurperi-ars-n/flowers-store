@@ -1,34 +1,49 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getLocal, removeLocal } from "../../helpers/localStorage";
 
-const isToken = getLocal("JWT_Token");
-const isRole = getLocal("ROLE");
+const isRole = getLocal("ROLE") || "";
+const access = getLocal("JWT_Token") || null;
+const username = getLocal("username") || null;
+let isAuth = !!access || false;
 
-const initialState = {
-  username: "",
-  role: isRole || "",
-  isAuth: !!isToken || false,
-  accessToken: "",
-  error: false,
+export const initialState = {
+	username: username,
+	fullname: "",
+	phoneNumber: "",
+	email: "",
+	role: isRole,
+	isAuth: isAuth,
+	accessToken: access,
+	error: false,
 };
 
-const loginSlice = createSlice({
-  name: "loginSlice",
-  initialState,
-  reducers: {
-    logIn(state, action) {
-      state.role = action.payload.role;
-      state.username = action.payload.username;
-      state.isAuth = !!action.payload.token;
-    },
-    logOut(state, action) {
-      removeLocal("JWT_Token");
-      removeLocal("ROLE");
-      removeLocal('isAuth', false)
-    }
-  },
+const authSlice = createSlice({
+	name: "authSlice",
+	initialState,
+	reducers: {
+		signUp(state, action) {
+			state.email = action.payload.email;
+			state.phoneNumber = action.payload.phoneNumber;
+			state.valueBtn = action.payload.fullname;
+		},
+		logIn(state, action) {
+			state.role = action.payload.role;
+			state.username = action.payload.username;
+			state.isAuth = !!action.payload.token;
+			state.accessToken = action.payload.token;
+		},
+		logOut(state, action) {
+			state.role = null;
+			state.username = "";
+			state.isAuth = false;
+			state.accessToken = "";
+			removeLocal("JWT_Token");
+			removeLocal("ROLE");
+			removeLocal("isAuth", false);
+		},
+	},
 });
 
-export const { logIn, logOut } = loginSlice.actions;
+export const { logIn, logOut, signUp } = authSlice.actions;
 
-export default loginSlice.reducer;
+export default authSlice.reducer;
