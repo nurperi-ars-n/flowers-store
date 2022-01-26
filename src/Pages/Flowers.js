@@ -56,8 +56,11 @@ export default function Flowers() {
 				Header: "Available",
 				filter: "available",
 				Cell: (value) => (
-					<Typography variant='h5' color={value ? "success.light" : "error"}>
-						{value ? <CheckBoxIcon /> : <CancelIcon />}
+					<Typography
+						variant='h5'
+						color={!value ? "success.light" : "error"}
+					>
+						{!value ? <CheckBoxIcon /> : <CancelIcon />}
 					</Typography>
 				),
 			},

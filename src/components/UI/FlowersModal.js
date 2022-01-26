@@ -20,6 +20,7 @@ const FlowersCreateUpdateDeleteModal = ({
 		price: null,
 		rating: null,
 		available: true,
+		imageNames: ["string"],
 	});
 	const [error, setError] = useState(null);
 
@@ -30,6 +31,7 @@ const FlowersCreateUpdateDeleteModal = ({
 				price: item?.price,
 				rating: item?.rating,
 				available: item?.available,
+				imageNames: ["string"],
 			}));
 		}
 	}, [item, modalType]);
@@ -156,6 +158,18 @@ const FlowersCreateUpdateDeleteModal = ({
 							<MenuItem value={true}>Yes</MenuItem>
 							<MenuItem value={false}>No</MenuItem>
 						</BasicSelect>
+						<BasicSelect
+							autoComplete='off'
+							type='text'
+							value={form?.available}
+							label='Choose'
+							name='Choose'
+							onChange={handleformChange}
+						>
+							<MenuItem value={true}>Yes</MenuItem>
+							<MenuItem value={false}>No</MenuItem>
+							<MenuItem value={false}>No</MenuItem>
+						</BasicSelect>
 					</Box>
 				)}
 
@@ -175,23 +189,39 @@ const FlowersCreateUpdateDeleteModal = ({
 					>
 						<Button
 							variant='contained'
-							color={modalType === FLOWER_MODAL_TYPE.DELETE ? "info" : "error"}
+							color={
+								modalType === FLOWER_MODAL_TYPE.DELETE
+									? "info"
+									: "error"
+							}
 							onClick={onModalClose}
 						>
 							Отмена{" "}
 						</Button>
 						{modalType === FLOWER_MODAL_TYPE.CREATE && (
-							<Button variant='contained' color='info' onClick={onSubmit}>
+							<Button
+								variant='contained'
+								color='info'
+								onClick={onSubmit}
+							>
 								Создать
 							</Button>
 						)}
 						{modalType === FLOWER_MODAL_TYPE.UPDATE && (
-							<Button variant='contained' color='info' onClick={onSubmit}>
+							<Button
+								variant='contained'
+								color='info'
+								onClick={onSubmit}
+							>
 								Сохранить
 							</Button>
 						)}
 						{modalType === FLOWER_MODAL_TYPE.DELETE && (
-							<Button variant='contained' color='error' onClick={onSubmit}>
+							<Button
+								variant='contained'
+								color='error'
+								onClick={onSubmit}
+							>
 								Удалить
 							</Button>
 						)}

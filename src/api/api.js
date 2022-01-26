@@ -17,7 +17,9 @@ export const getUsers = async () => {
 
 export const getFlowers = async () => {
 	try {
-		const response = await axiosInstance.get("api/flowers?page=1&size=20");
+		const response = await axiosInstance.get(
+			"/api/public/flowers?page=1&size=10",
+		);
 		// const response = await axiosInstance.get("todos/");
 		const data = response.data;
 		return { success: true, data };
@@ -27,7 +29,10 @@ export const getFlowers = async () => {
 };
 export const editFlowers = async (flower, id) => {
 	try {
-		const response = await axiosInstance.put(`api/flowers${id}`, flower);
+		const response = await axiosInstance.put(
+			`api/admin/flowers/${id}`,
+			flower,
+		);
 		const data = response.data;
 		console.log(response, "editFlower");
 		return { success: true, data };
@@ -38,7 +43,7 @@ export const editFlowers = async (flower, id) => {
 export const delFlowers = async (id) => {
 	console.log(id, "deleteFlower");
 	try {
-		const response = await axiosInstance.delete(`api/flowers/${id}`);
+		const response = await axiosInstance.delete(`api/admin/flowers/${id}`);
 		const data = response.data;
 		console.log(response, "deleteFlower");
 		return { success: true, data };
@@ -49,7 +54,7 @@ export const delFlowers = async (id) => {
 export const createFlowers = async (flower) => {
 	console.log(flower);
 	try {
-		const response = await axiosInstance.post("api/flowers", flower);
+		const response = await axiosInstance.post("api/admin/flowers", flower);
 		console.log(response, "responseFlower");
 		const data = response.data;
 		return { success: true, data };
